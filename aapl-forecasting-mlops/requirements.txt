@@ -1,0 +1,12 @@
+yfinance == 0.2.57 
+pandas
+numpy
+statsmodels == 0.14.4
+mlflow == 2.22.0 
+fastapi
+uvicorn
+scikit-learn
+pydantic
+matplotlib
+seaborn
+pytest
