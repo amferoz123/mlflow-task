@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/72f58a6064684cdf9b5dfebd61b6a01e/artifacts
+end_time: 1745946007944
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 72f58a6064684cdf9b5dfebd61b6a01e
+run_name: luxuriant-pig-28
+run_uuid: 72f58a6064684cdf9b5dfebd61b6a01e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745945411346
+status: 3
+tags: []
+user_id: amferoz

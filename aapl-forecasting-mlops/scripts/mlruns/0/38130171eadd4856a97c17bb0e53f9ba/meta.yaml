@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/38130171eadd4856a97c17bb0e53f9ba/artifacts
+end_time: 1745946113359
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 38130171eadd4856a97c17bb0e53f9ba
+run_name: charming-ray-78
+run_uuid: 38130171eadd4856a97c17bb0e53f9ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745945030318
+status: 3
+tags: []
+user_id: amferoz

@@ -13,14 +13,21 @@ def save_data_to_csv(data, file_path):
 
 if __name__ == "__main__":
     # Define the date range for data collection
-    start_date = '2023-01-01'
+    start_date = '2020-01-01'
     end_date = '2025-01-01'
     
     # Fetch the data
     aapl_data = fetch_aapl_data(start_date, end_date)
     
-    # Create the raw data directory if it doesn't exist
-    os.makedirs('data/raw', exist_ok=True)
+   #create data directory if it doesn't exist one level up from the script
+    data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
+    os.makedirs(data_dir, exist_ok=True)
     
-    # Save the data to the raw data directory
-    save_data_to_csv(aapl_data, 'data/raw/aapl_stock_data.csv')
+    # Define the file path to save the data
+    file_path = os.path.join(data_dir, 'aapl_data.csv')
+    
+    # Save the data to a CSV file
+    save_data_to_csv(aapl_data, file_path)
+    
+    print(f"Data saved to {file_path}")
+    print("Data fetching complete.")

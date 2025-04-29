@@ -1,12 +1,16 @@
-yfinance == 0.2.57 
+# Core ML & Data Handling
 pandas
 numpy
-statsmodels == 0.14.4
-mlflow == 2.22.0 
-fastapi
-uvicorn
+yfinance
+statsmodels
 scikit-learn
-pydantic
+mlflow
+
+# API Framework & Server
+fastapi
+uvicorn[standard] # Includes standard dependencies like pydantic, starlette, etc.
+
+# Plotting (Optional, used in training script)
 matplotlib
-seaborn
-pytest
+
+# Add other specific dependencies below if needed

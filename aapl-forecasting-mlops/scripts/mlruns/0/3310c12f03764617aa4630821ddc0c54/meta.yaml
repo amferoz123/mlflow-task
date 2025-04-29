@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/3310c12f03764617aa4630821ddc0c54/artifacts
+end_time: 1745942960458
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3310c12f03764617aa4630821ddc0c54
+run_name: resilient-midge-24
+run_uuid: 3310c12f03764617aa4630821ddc0c54
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745942854009
+status: 3
+tags: []
+user_id: amferoz

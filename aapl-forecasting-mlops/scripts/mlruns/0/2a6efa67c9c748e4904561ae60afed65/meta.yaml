@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/2a6efa67c9c748e4904561ae60afed65/artifacts
+end_time: 1745945411320
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2a6efa67c9c748e4904561ae60afed65
+run_name: mercurial-bug-936
+run_uuid: 2a6efa67c9c748e4904561ae60afed65
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745945304361
+status: 3
+tags: []
+user_id: amferoz

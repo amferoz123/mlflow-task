@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/89eb9227341d465d94e5c6f216ce14ed/artifacts
+end_time: 1745942854002
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 89eb9227341d465d94e5c6f216ce14ed
+run_name: adorable-rat-818
+run_uuid: 89eb9227341d465d94e5c6f216ce14ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745942749390
+status: 3
+tags: []
+user_id: amferoz

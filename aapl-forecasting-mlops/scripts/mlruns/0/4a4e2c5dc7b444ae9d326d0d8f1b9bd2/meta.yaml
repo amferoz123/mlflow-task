@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/4a4e2c5dc7b444ae9d326d0d8f1b9bd2/artifacts
+end_time: 1745942749312
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4a4e2c5dc7b444ae9d326d0d8f1b9bd2
+run_name: capable-cod-422
+run_uuid: 4a4e2c5dc7b444ae9d326d0d8f1b9bd2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745942650688
+status: 3
+tags: []
+user_id: amferoz

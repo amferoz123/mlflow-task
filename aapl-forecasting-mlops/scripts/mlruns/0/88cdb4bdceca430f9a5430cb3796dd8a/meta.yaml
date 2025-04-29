@@ -1,0 +1,15 @@
+artifact_uri: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/88cdb4bdceca430f9a5430cb3796dd8a/artifacts
+end_time: 1745945160051
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 88cdb4bdceca430f9a5430cb3796dd8a
+run_name: sedate-fox-873
+run_uuid: 88cdb4bdceca430f9a5430cb3796dd8a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745945030379
+status: 3
+tags: []
+user_id: amferoz

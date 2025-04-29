@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1745943395214
+current_stage: None
+description: null
+last_updated_timestamp: 1745943395214
+name: ARIMA_AAPL_Forecast
+run_id: 3a85117ab153404d899639ac2e67f932
+run_link: null
+source: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/3a85117ab153404d899639ac2e67f932/artifacts/best-arima-model
+status: READY
+status_message: null
+storage_location: file:///home/amferoz/codes/MLOPS/mlfflow-class-task-amferoz123/aapl-forecasting-mlops/scripts/mlruns/0/3a85117ab153404d899639ac2e67f932/artifacts/best-arima-model
+user_id: null
+version: 1
