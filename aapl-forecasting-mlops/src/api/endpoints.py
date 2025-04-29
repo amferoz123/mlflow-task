@@ -1,9 +1,12 @@
 from fastapi import APIRouter, HTTPException, Query
 import mlflow
+from mlflow.tracking import MlflowClient # Import MlflowClient
+from mlflow.store.artifact.models_artifact_repo import ModelsArtifactRepository # Import ModelsArtifactRepository
+import statsmodels.api as sm # Import statsmodels for direct loading
 import pandas as pd
 import logging
 import os
-from pathlib import Path # Import Path
+from pathlib import Path
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -32,18 +35,60 @@ try:
     else:
         logger.info(f"Using MLFLOW_TRACKING_URI from environment: {os.environ['MLFLOW_TRACKING_URI']}")
 
-    # Construct the model URI (remains the same, MLflow uses the set tracking URI)
+    # Construct the model URI
     model_uri = f"models:/{MODEL_NAME}/{MODEL_STAGE}"
     logger.info(f"Attempting to load model '{MODEL_NAME}' stage '{MODEL_STAGE}' using tracking URI: {mlflow.get_tracking_uri()}")
 
-    # Load the model using mlflow.statsmodels.load_model
-    loaded_model = mlflow.statsmodels.load_model(model_uri)
-    logger.info(f"Successfully loaded model: {loaded_model}")
+    # --- Resolve artifact path dynamically ---
+    # Use ModelsArtifactRepository to get the local path where the artifact should be.
+    # It handles downloading/resolving based on the currently set tracking URI.
+    # The empty string "" signifies downloading the root artifact directory for the model version.
+    logger.info(f"Resolving artifact path for model URI: {model_uri}")
+    model_artifact_path = ModelsArtifactRepository(model_uri).download_artifacts("")
+    logger.info(f"Artifacts resolved/downloaded to local path: {model_artifact_path}")
+
+    # Construct the path to the actual model file (usually model.pkl for statsmodels)
+    # Check common filenames used by mlflow.statsmodels.log_model
+    potential_model_filenames = ["model.pkl", "model.pickle"]
+    model_file_path = None
+    for filename in potential_model_filenames:
+        path_check = os.path.join(model_artifact_path, filename)
+        if os.path.exists(path_check):
+            model_file_path = path_check
+            logger.info(f"Found model file at: {model_file_path}")
+            break
+    
+    if not model_file_path:
+         # Check if the artifact path itself is the model file (less common for statsmodels)
+         if os.path.isfile(model_artifact_path) and model_artifact_path.endswith(('.pkl', '.pickle')):
+             model_file_path = model_artifact_path
+             logger.info(f"Found model file directly at artifact path: {model_file_path}")
+         else:
+             # If still not found, check the 'best-arima-model' subdirectory if it exists
+             # This matches the artifact_path used in train_model.py
+             subdir_path = os.path.join(model_artifact_path, "best-arima-model")
+             if os.path.isdir(subdir_path):
+                 logger.info(f"Checking subdirectory: {subdir_path}")
+                 for filename in potential_model_filenames:
+                     path_check = os.path.join(subdir_path, filename)
+                     if os.path.exists(path_check):
+                         model_file_path = path_check
+                         logger.info(f"Found model file in subdirectory: {model_file_path}")
+                         break
+             
+             if not model_file_path:
+                 logger.error(f"Could not find model file (e.g., model.pkl) within resolved artifact path: {model_artifact_path} or its 'best-arima-model' subdirectory.")
+                 raise FileNotFoundError(f"Model file not found in {model_artifact_path}")
+
+    # Load the model directly using statsmodels' load function
+    logger.info(f"Loading model directly from: {model_file_path}")
+    loaded_model = sm.load(model_file_path)
+    logger.info(f"Successfully loaded model directly from pickle file.")
     # logger.info(f"Model summary: {loaded_model.summary()}") # Can be verbose
 
 except Exception as e:
     logger.error(f"Failed to load model '{MODEL_NAME}' from stage '{MODEL_STAGE}'. Tracking URI: {mlflow.get_tracking_uri()}. Error: {e}", exc_info=True)
-    loaded_model = None
+    loaded_model = None # Ensure model is None on failure
 
 # --- Endpoints ---
 
